@@ -3,6 +3,7 @@ C:\Users\akumar41\Downloads\quora_stub\Trello_quora\quora-service\src\main\java\
 C:\Users\akumar41\Downloads\quora_stub\Trello_quora\quora-service\src\main\java\com\upgrad\quora\service\common\UnexpectedException.java
 C:\Users\akumar41\Downloads\quora_stub\Trello_quora\quora-service\src\main\java\com\upgrad\quora\service\business\SignupBusinessService.java
 C:\Users\akumar41\Downloads\quora_stub\Trello_quora\quora-service\src\main\java\com\upgrad\quora\service\common\GenericErrorCode.java
+C:\Users\akumar41\Downloads\quora_stub\Trello_quora\quora-service\src\main\java\com\upgrad\quora\service\business\AuthenticationService.java
 C:\Users\akumar41\Downloads\quora_stub\Trello_quora\quora-service\src\main\java\com\upgrad\quora\service\exception\InvalidQuestionException.java
 C:\Users\akumar41\Downloads\quora_stub\Trello_quora\quora-service\src\main\java\com\upgrad\quora\service\exception\AuthenticationFailedException.java
 C:\Users\akumar41\Downloads\quora_stub\Trello_quora\quora-service\src\main\java\com\upgrad\quora\service\entity\UserEntity.java
@@ -14,3 +15,4 @@ C:\Users\akumar41\Downloads\quora_stub\Trello_quora\quora-service\src\main\java\
 C:\Users\akumar41\Downloads\quora_stub\Trello_quora\quora-service\src\main\java\com\upgrad\quora\service\exception\AuthorizationFailedException.java
 C:\Users\akumar41\Downloads\quora_stub\Trello_quora\quora-service\src\main\java\com\upgrad\quora\service\exception\SignOutRestrictedException.java
 C:\Users\akumar41\Downloads\quora_stub\Trello_quora\quora-service\src\main\java\com\upgrad\quora\service\business\JwtTokenProvider.java
+C:\Users\akumar41\Downloads\quora_stub\Trello_quora\quora-service\src\main\java\com\upgrad\quora\service\entity\UserAuthTokenEntity.java
