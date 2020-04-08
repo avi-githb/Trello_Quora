@@ -10,6 +10,7 @@ com\upgrad\quora\service\entity\UserAuthTokenEntity.class
 com\upgrad\quora\service\exception\AnswerNotFoundException.class
 com\upgrad\quora\service\exception\InvalidQuestionException.class
 com\upgrad\quora\service\business\PasswordCryptographyProvider.class
+com\upgrad\quora\service\business\SignOutService.class
 com\upgrad\quora\service\exception\AuthorizationFailedException.class
 com\upgrad\quora\service\ServiceConfiguration.class
 com\upgrad\quora\service\business\AuthenticationService.class

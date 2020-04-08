@@ -45,6 +45,7 @@ public class UserAuthTokenEntity implements Serializable {
     private ZonedDateTime expiresAt;
 
     @Column(name = "LOGOUT_AT")
+    @NotNull
     private ZonedDateTime logoutAt;
 
 
