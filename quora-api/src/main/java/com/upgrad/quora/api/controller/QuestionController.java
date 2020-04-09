@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -39,15 +40,17 @@ public class QuestionController {
     private GetAllQuestionsService getAllQuestionsService;
 
     @RequestMapping(method = RequestMethod.GET, path = "/question/all",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<QuestionDetailsResponse> getAllQuestions(@RequestHeader("authorization") final String authorization) throws AuthorizationFailedException {
+    public ResponseEntity<List<QuestionDetailsResponse>> getAllQuestions(@RequestHeader("authorization") final String authorization) throws AuthorizationFailedException {
 
         List<QuestionEntity> allQuestion = getAllQuestionsService.getAllQuestion(authorization);
         QuestionEntity temp = new QuestionEntity();
-        for (int i = 0; i < allQuestion.size(); i++)
+        List<QuestionDetailsResponse> displayAllQuestions = new ArrayList<>();
+        for (int i = 0; i < allQuestion.size(); i++){
             temp = allQuestion.get(i);
-            QuestionDetailsResponse questionDetailsResponse = new QuestionDetailsResponse().id(temp.getUuid()).content(temp.getContent());
-
-            return new ResponseEntity<QuestionDetailsResponse>(questionDetailsResponse, HttpStatus.OK);
+        QuestionDetailsResponse questionDetailsResponse = new QuestionDetailsResponse().id(temp.getUuid()).content(temp.getContent());
+        displayAllQuestions.add(questionDetailsResponse);
+    }
+            return new ResponseEntity<List<QuestionDetailsResponse>>(displayAllQuestions, HttpStatus.OK);
 
     }
 }
