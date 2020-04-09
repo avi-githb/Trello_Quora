@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class UserDao {
@@ -44,6 +46,19 @@ public class UserDao {
         }
     }
 
+    public List<QuestionEntity> getAllQuestions(){
+
+    List<Object[]> objects = entityManager.createNamedQuery("getAllQuestions",Object[].class).getResultList();
+        List<QuestionEntity> allQuestions = new ArrayList<QuestionEntity>();
+        for(Object[] row : objects){
+            QuestionEntity temp = new QuestionEntity();
+            temp.setUuid((String) row[0]);
+            temp.setContent((String) row[1]);
+            allQuestions.add(temp);
+        }
+        return allQuestions;
+    }
+
 
     public UserAuthTokenEntity createAuthToken(final UserAuthTokenEntity userAuthTokenEntity) {
         entityManager.persist(userAuthTokenEntity);
@@ -61,5 +76,7 @@ public class UserDao {
         entityManager.persist(questionEntity);
         return questionEntity;
     }
+
+
 
 }
