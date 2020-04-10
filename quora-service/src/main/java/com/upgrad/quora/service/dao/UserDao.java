@@ -59,6 +59,15 @@ public class UserDao {
         return allQuestions;
     }
 
+    public QuestionEntity getQuestionFromUuid(final String questionId) {
+        try {
+           return entityManager.createNamedQuery("getQuestionByUuid", QuestionEntity.class).setParameter("uuid", questionId).getSingleResult();
+
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
+
 
     public UserAuthTokenEntity createAuthToken(final UserAuthTokenEntity userAuthTokenEntity) {
         entityManager.persist(userAuthTokenEntity);

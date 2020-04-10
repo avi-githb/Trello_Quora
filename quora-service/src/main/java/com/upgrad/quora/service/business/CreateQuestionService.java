@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.ZonedDateTime;
+import java.util.UUID;
 
 @Service
 public class CreateQuestionService {
@@ -29,8 +30,8 @@ public class CreateQuestionService {
         if (userAuthTokenEntity.getLogoutAt() != null) {
             throw new AuthorizationFailedException("ATHR-002", "User is signed out.Sign in first to post a question");
         }
+        questionEntity.setUuid(UUID.randomUUID().toString());
         questionEntity.setUser(userAuthTokenEntity.getUser());
-        questionEntity.setUuid(userAuthTokenEntity.getUuid());
         questionEntity.setDate(ZonedDateTime.now());
 
         userDao.createQuestion(questionEntity);
