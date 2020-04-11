@@ -24,37 +24,32 @@ public class DeleteQuestionService {
 
         //to delete a question either own a question or role==admin
 
-        if(userAuthTokenEntity==null){
-            throw new AuthorizationFailedException("ATHR-001","User has not signed in");
+        if (userAuthTokenEntity == null) {
+            throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         }
 
-        if(userAuthTokenEntity.getLogoutAt()!=null){
-         throw new AuthorizationFailedException("ATHR-002","User is signed out.Sign in first to delete a question");
+        if (userAuthTokenEntity.getLogoutAt() != null) {
+            throw new AuthorizationFailedException("ATHR-002", "User is signed out.Sign in first to delete a question");
         }
 
 
         QuestionEntity questionEntity = userDao.getQuestionFromUuid(questionId); //all attributes of question
 
-        if(questionEntity == null){
-            throw new InvalidQuestionException("QUES-001","Entered question uuid does not exist");
+        if (questionEntity == null) {
+            throw new InvalidQuestionException("QUES-001", "Entered question uuid does not exist");
         }
 
         UserEntity userEntity = userDao.getUserFromUuid(userAuthTokenEntity.getUuid());
         UserEntity userEntityFromQuestion = questionEntity.getUser();
 
-        //need to fix this logic error - no entity found..
-        if(!(userEntity.getUuid().equals(userEntityFromQuestion.getUuid())) || !(userEntity.getRole().equals("admin")) ){
+        if (!(userEntity.getUuid().equals(userEntityFromQuestion.getUuid())) && !(userEntity.getRole().equals("admin"))) {
 
-            throw new AuthorizationFailedException("ATHR-003","Only the question owner or admin can delete the question");
+            throw new AuthorizationFailedException("ATHR-003", "Only the question owner or admin can delete the question");
         }
-
-
 
         String deletedQuestionUuid = questionEntity.getUuid();
 
-        if(userEntity.equals(questionEntity.getUser()) || userEntity.getRole().equals("admin")) {
-            //delete question logic
-        }
+        userDao.deleteQuestionFromUuid(deletedQuestionUuid);
         return deletedQuestionUuid; //return String
     }
 }

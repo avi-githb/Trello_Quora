@@ -17,23 +17,23 @@ public class UserDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public UserEntity createUser(UserEntity userEntity){
+    public UserEntity createUser(UserEntity userEntity) {
         entityManager.persist(userEntity);
         return userEntity;
     }
 
-    public UserEntity getUserByEmail(final String email){
-        try{
+    public UserEntity getUserByEmail(final String email) {
+        try {
             return entityManager.createNamedQuery("userByEmail", UserEntity.class).setParameter("email", email).getSingleResult();
-        }catch (NoResultException nre){
+        } catch (NoResultException nre) {
             return null;
         }
     }
 
-    public UserEntity getUserByUsername(final String username){
-        try{
+    public UserEntity getUserByUsername(final String username) {
+        try {
             return entityManager.createNamedQuery("userByUsername", UserEntity.class).setParameter("username", username).getSingleResult();
-        }catch (NoResultException nre){
+        } catch (NoResultException nre) {
             return null;
         }
     }
@@ -46,11 +46,11 @@ public class UserDao {
         }
     }
 
-    public List<QuestionEntity> getAllQuestions(){
+    public List<QuestionEntity> getAllQuestions() {
 
-    List<Object[]> objects = entityManager.createNamedQuery("getAllQuestions",Object[].class).getResultList();
+        List<Object[]> objects = entityManager.createNamedQuery("getAllQuestions", Object[].class).getResultList();
         List<QuestionEntity> allQuestions = new ArrayList<QuestionEntity>();
-        for(Object[] row : objects){
+        for (Object[] row : objects) {
             QuestionEntity temp = new QuestionEntity();
             temp.setUuid((String) row[0]);
             temp.setContent((String) row[1]);
@@ -61,12 +61,17 @@ public class UserDao {
 
     public QuestionEntity getQuestionFromUuid(final String questionId) {
         try {
-           return entityManager.createNamedQuery("getQuestionByUuid", QuestionEntity.class).setParameter("uuid", questionId).getSingleResult();
+            return entityManager.createNamedQuery("getQuestionByUuid", QuestionEntity.class).setParameter("uuid", questionId).getSingleResult();
 
         } catch (NoResultException nre) {
             return null;
         }
     }
+
+    public void deleteQuestionFromUuid(final String questionId) {
+        entityManager.createQuery("delete from QuestionEntity u where u.uuid =:questionId").setParameter("questionId", questionId).executeUpdate();
+    }
+
 
     public List<QuestionEntity> getQuestionFromId(final UserEntity user) {
         try {
@@ -98,12 +103,10 @@ public class UserDao {
     }
 
 
-
     public QuestionEntity createQuestion(final QuestionEntity questionEntity) {
         entityManager.persist(questionEntity);
         return questionEntity;
     }
-
 
 
 }

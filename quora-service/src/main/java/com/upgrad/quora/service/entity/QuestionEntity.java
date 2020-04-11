@@ -4,6 +4,8 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,7 +17,8 @@ import java.time.ZonedDateTime;
 @NamedQueries({
         @NamedQuery(name = "getAllQuestions", query = "select u.uuid,u.content from QuestionEntity u"),
         @NamedQuery(name = "getQuestionByUuid", query = "select u from QuestionEntity u where u.uuid=:uuid" ),
-        @NamedQuery(name = "getQuestionById", query = "select u from QuestionEntity u where u.user=:user")
+        @NamedQuery(name = "getQuestionById", query = "select u from QuestionEntity u where u.user=:user"),
+        //@NamedQuery(name = "deleteQuestionById", query = "delete from QuestionEntity u where u.uuid =:questionId")
 })
 public class QuestionEntity {
 
@@ -36,6 +39,7 @@ public class QuestionEntity {
 
     @ManyToOne
     @JoinColumn(name = "USER_ID")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private UserEntity user;
 
     @Column(name = "DATE")
