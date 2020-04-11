@@ -3,6 +3,7 @@ package com.upgrad.quora.api.controller;
 import com.upgrad.quora.api.model.*;
 import com.upgrad.quora.service.business.CreateQuestionService;
 import com.upgrad.quora.service.business.EditQuestionContentService;
+import com.upgrad.quora.service.business.GetAllQuestionByUserSerivce;
 import com.upgrad.quora.service.business.GetAllQuestionsService;
 import com.upgrad.quora.service.entity.QuestionEntity;
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
@@ -70,6 +71,27 @@ public class QuestionController {
         QuestionEditResponse questionEditResponse = new QuestionEditResponse().id(editedQuestion.getUuid()).status("QUESTION EDITED");
         return new ResponseEntity<QuestionEditResponse>(questionEditResponse,HttpStatus.OK);
     }
+
+    @Autowired
+    private GetAllQuestionByUserSerivce getAllQuestionByUserSerivce;
+
+    @RequestMapping(method = RequestMethod.GET, path = "/question/all/{userId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<List<QuestionDetailsResponse>> getAllQuestionByUser(@RequestHeader ("authorization") final String authorization,final String userId){
+
+        List<QuestionEntity> allQuestionByUser = getAllQuestionByUserSerivce.getAllQuestionByUser(userId);
+
+        QuestionEntity temp1 = new QuestionEntity();
+        List<QuestionDetailsResponse> displayAllQuestionsByUser = new ArrayList<>();
+        for (int i = 0; i < allQuestionByUser.size(); i++) {
+            temp1 = allQuestionByUser.get(i);
+            QuestionDetailsResponse questionDetailsResponse = new QuestionDetailsResponse().id(temp1.getUuid()).content(temp1.getContent());
+            displayAllQuestionsByUser.add(questionDetailsResponse);
+        }
+        return new ResponseEntity<List<QuestionDetailsResponse>>(displayAllQuestionsByUser, HttpStatus.OK);
+
+    }
+
+
 }
 
 

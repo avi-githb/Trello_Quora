@@ -68,6 +68,24 @@ public class UserDao {
         }
     }
 
+    public List<QuestionEntity> getQuestionFromId(final UserEntity user) {
+        try {
+            List<QuestionEntity> allQuestionFromUserId = entityManager.createNamedQuery("getQuestionById", QuestionEntity.class).setParameter("user", user).getResultList();
+            return allQuestionFromUserId;
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
+
+
+    public UserEntity getUserFromUuid(final String userId) {
+        try {
+            return entityManager.createNamedQuery("getUserByUuid", UserEntity.class).setParameter("userId", userId).getSingleResult();
+
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
 
     public UserAuthTokenEntity createAuthToken(final UserAuthTokenEntity userAuthTokenEntity) {
         entityManager.persist(userAuthTokenEntity);
