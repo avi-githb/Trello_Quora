@@ -1,10 +1,7 @@
 package com.upgrad.quora.api.controller;
 
 import com.upgrad.quora.api.model.*;
-import com.upgrad.quora.service.business.CreateQuestionService;
-import com.upgrad.quora.service.business.EditQuestionContentService;
-import com.upgrad.quora.service.business.GetAllQuestionByUserSerivce;
-import com.upgrad.quora.service.business.GetAllQuestionsService;
+import com.upgrad.quora.service.business.*;
 import com.upgrad.quora.service.entity.QuestionEntity;
 import com.upgrad.quora.service.exception.AuthenticationFailedException;
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
@@ -91,6 +88,18 @@ public class QuestionController {
         }
         return new ResponseEntity<List<QuestionDetailsResponse>>(displayAllQuestionsByUser, HttpStatus.OK);
 
+    }
+
+    @Autowired
+    private DeleteQuestionService deleteQuestionService;
+
+    @RequestMapping(method = RequestMethod.DELETE, path = "question/delete/{questionId}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<QuestionDeleteResponse> deleteQuestion(@RequestHeader("authorization")final String authorization, final String questionId) throws AuthorizationFailedException, InvalidQuestionException {
+
+        String deletedQuestionUuid = deleteQuestionService.deleteQuestion(authorization,questionId);
+
+        QuestionDeleteResponse questionDeleteResponse = new QuestionDeleteResponse().id(deletedQuestionUuid).status("QUESTION DELETED");
+        return new ResponseEntity<QuestionDeleteResponse>(questionDeleteResponse,HttpStatus.OK);
     }
 
 

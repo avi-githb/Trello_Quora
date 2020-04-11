@@ -38,7 +38,7 @@ public class GetAllQuestionByUserSerivce {
 
         UserEntity userEntity = userDao.getUserFromUuid(userId); //userId = UUID
 
-        List<QuestionEntity> allQuestionFromUserId = userDao.getQuestionFromId(userEntity); //getId = Internal UserID
+        List<QuestionEntity> allQuestionFromUserId = userDao.getQuestionFromId(userEntity); //userEntity = user
 
         return allQuestionFromUserId;
     }
