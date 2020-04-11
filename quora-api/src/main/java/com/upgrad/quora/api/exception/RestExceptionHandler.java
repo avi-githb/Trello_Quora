@@ -34,4 +34,9 @@ public class RestExceptionHandler {
     public ResponseEntity<ErrorResponse> InvalidQuestionException (InvalidQuestionException iqe, WebRequest request){
         return new ResponseEntity<ErrorResponse>(new ErrorResponse().code(iqe.getCode()).message(iqe.getErrorMessage()),HttpStatus.UNAUTHORIZED);
     }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ErrorResponse> UserNotFoundException (UserNotFoundException unf, WebRequest request){
+        return new ResponseEntity<ErrorResponse>(new ErrorResponse().code(unf.getCode()).message(unf.getErrorMessage()),HttpStatus.NOT_FOUND);
+    }
 }

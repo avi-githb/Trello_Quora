@@ -6,8 +6,10 @@ import com.upgrad.quora.service.business.EditQuestionContentService;
 import com.upgrad.quora.service.business.GetAllQuestionByUserSerivce;
 import com.upgrad.quora.service.business.GetAllQuestionsService;
 import com.upgrad.quora.service.entity.QuestionEntity;
+import com.upgrad.quora.service.exception.AuthenticationFailedException;
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
 import com.upgrad.quora.service.exception.InvalidQuestionException;
+import com.upgrad.quora.service.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -76,9 +78,9 @@ public class QuestionController {
     private GetAllQuestionByUserSerivce getAllQuestionByUserSerivce;
 
     @RequestMapping(method = RequestMethod.GET, path = "/question/all/{userId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<List<QuestionDetailsResponse>> getAllQuestionByUser(@RequestHeader ("authorization") final String authorization,final String userId){
+    public ResponseEntity<List<QuestionDetailsResponse>> getAllQuestionByUser(@RequestHeader ("authorization") final String authorization,final String userId) throws AuthenticationFailedException, AuthorizationFailedException, UserNotFoundException {
 
-        List<QuestionEntity> allQuestionByUser = getAllQuestionByUserSerivce.getAllQuestionByUser(userId);
+        List<QuestionEntity> allQuestionByUser = getAllQuestionByUserSerivce.getAllQuestionByUser(userId, authorization);
 
         QuestionEntity temp1 = new QuestionEntity();
         List<QuestionDetailsResponse> displayAllQuestionsByUser = new ArrayList<>();
