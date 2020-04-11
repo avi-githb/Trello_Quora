@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: com.upgrad.quora.api.controller.CommonControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 36.872 s <<< FAILURE! - in com.upgrad.quora.api.controller.CommonControllerTest
+detailsOfNonExistingUser(com.upgrad.quora.api.controller.CommonControllerTest)  Time elapsed: 0.902 s  <<< FAILURE!
+java.lang.AssertionError: No value at JSON path "code"
+	at com.upgrad.quora.api.controller.CommonControllerTest.detailsOfNonExistingUser(CommonControllerTest.java:44)
+Caused by: java.lang.IllegalArgumentException: json can not be null or empty
+	at com.upgrad.quora.api.controller.CommonControllerTest.detailsOfNonExistingUser(CommonControllerTest.java:44)
+
+detailsUsingNonExistingAccessToken(com.upgrad.quora.api.controller.CommonControllerTest)  Time elapsed: 0.196 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<403> but was:<404>
+	at com.upgrad.quora.api.controller.CommonControllerTest.detailsUsingNonExistingAccessToken(CommonControllerTest.java:35)
+
+details(com.upgrad.quora.api.controller.CommonControllerTest)  Time elapsed: 0.262 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<404>
+	at com.upgrad.quora.api.controller.CommonControllerTest.details(CommonControllerTest.java:28)
+
