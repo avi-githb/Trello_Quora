@@ -17,8 +17,10 @@ import java.time.ZonedDateTime;
 @Entity
 @Table(name = "USER_AUTH", schema = "public")
 @NamedQueries({
+
         @NamedQuery(name = "userAuthTokenByAccessToken", query = "select ut from UserAuthTokenEntity ut where ut.accessToken =:accessToken"),
-        @NamedQuery(name = "getUserByUserId", query = "select ut from UserAuthTokenEntity ut where ut.user=:user")
+        @NamedQuery(name = "getUserByUserId", query = "select ut from UserAuthTokenEntity ut where ut.user=:user"),
+        @NamedQuery(name = "userAuthTokenByAccessToken", query = "select ut from UserAuthTokenEntity ut where ut.accessToken =:accessToken")
 
 })
 public class UserAuthTokenEntity implements Serializable {
@@ -34,6 +36,7 @@ public class UserAuthTokenEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "USER_ID")
     @OnDelete(action = OnDeleteAction.CASCADE)
+
     private UserEntity user;
 
     @Column(name = "ACCESS_TOKEN")
@@ -50,6 +53,8 @@ public class UserAuthTokenEntity implements Serializable {
     private ZonedDateTime expiresAt;
 
     @Column(name = "LOGOUT_AT")
+    @NotNull
+
     private ZonedDateTime logoutAt;
 
 

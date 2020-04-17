@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package com.upgrad.quora.api.controller;
+=======
+/*package com.upgrad.quora.api.controller;
+>>>>>>> CommonController
 
 
 import org.junit.Test;
@@ -79,6 +83,7 @@ public class QuestionControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("code").value("ATHR-002"));
     }
 
+<<<<<<< HEAD
     //Encountering error while running test related to Ownership : java.lang.AssertionError: Status
     //Expected :403
     //Actual   :404
@@ -90,6 +95,15 @@ public class QuestionControllerTest {
 //                .andExpect(status().isForbidden())
 //                .andExpect(MockMvcResultMatchers.jsonPath("code").value("ATHR-003"));
 //    }
+=======
+    //This test case passes when you try to edit the question and the JWT token entered exists in the database and the user corresponding to that JWT token is signed in but the corresponding user is not the owner of the question.
+    @Test
+    public void editQuestionWithoutOwnership() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.put("/question/edit/database_question_uuid?content=edited_question").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE).header("authorization", "database_accesstoken"))
+                .andExpect(status().isForbidden())
+                .andExpect(MockMvcResultMatchers.jsonPath("code").value("ATHR-003"));
+    }
+>>>>>>> CommonController
 
     //This test case passes when you try to edit the question which does not exist in the database.
     @Test
@@ -116,12 +130,21 @@ public class QuestionControllerTest {
     }
 
     //This test case passes when you try to delete the question and the JWT token entered exists in the database and the user corresponding to that JWT token is signed in but the corresponding user is not the owner of the question or he is not the admin.
+<<<<<<< HEAD
 //    @Test
 //    public void deleteQuestionWithoutOwnership() throws Exception {
 //        mvc.perform(MockMvcRequestBuilders.delete("/question/delete/database_question_uuid").header("authorization", "database_accesstoken2"))
 //                .andExpect(status().isForbidden())
 //                .andExpect(MockMvcResultMatchers.jsonPath("code").value("ATHR-003"));
 //    }
+=======
+    @Test
+    public void deleteQuestionWithoutOwnership() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.delete("/question/delete/database_question_uuid").header("authorization", "database_accesstoken2"))
+                .andExpect(status().isForbidden())
+                .andExpect(MockMvcResultMatchers.jsonPath("code").value("ATHR-003"));
+    }
+>>>>>>> CommonController
 
 
     //This test case passes when you try to delete the question which does not exist in the database.
@@ -158,3 +181,7 @@ public class QuestionControllerTest {
 
 
 }
+<<<<<<< HEAD
+=======
+*/
+>>>>>>> CommonController

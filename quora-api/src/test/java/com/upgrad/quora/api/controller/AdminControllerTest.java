@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package com.upgrad.quora.api.controller;
+=======
+/*package com.upgrad.quora.api.controller;
+>>>>>>> CommonController
 
 
 import org.junit.Test;
@@ -37,12 +41,19 @@ public class AdminControllerTest {
         mvc.perform(MockMvcRequestBuilders.delete("/admin/user/database_uuid4").header("authorization", "database_accesstoken1"))
                 .andExpect(status().isForbidden())
                 .andExpect(MockMvcResultMatchers.jsonPath("code").value("ATHR-003"));
+<<<<<<< HEAD
 
+=======
+>>>>>>> CommonController
     }
 
 
     //This test case passes when you try to delete the user which does not exist in the database.
+<<<<<<< HEAD
     @Testnewlocalbranchname
+=======
+    @Test
+>>>>>>> CommonController
     public void deleteNonExistingUser() throws Exception {
         mvc.perform(MockMvcRequestBuilders.delete("/admin/user/non_existing_user_uuid").header("authorization", "database_accesstoken"))
                 .andExpect(status().isNotFound())
@@ -51,3 +62,7 @@ public class AdminControllerTest {
 
 
 }
+<<<<<<< HEAD
+=======
+*/
+>>>>>>> CommonController

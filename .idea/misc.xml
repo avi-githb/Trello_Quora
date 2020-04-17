@@ -8,12 +8,20 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/quora-api/pom.xml" />
+>>>>>>> CommonController
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/quora-db/pom.xml" />
         <option value="$PROJECT_DIR$/quora-service/pom.xml" />
+=======
+        <option value="$PROJECT_DIR$/pom.xml" />
+>>>>>>> CommonController
       </set>
     </option>
   </component>

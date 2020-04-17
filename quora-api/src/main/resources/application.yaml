@@ -12,7 +12,11 @@ spring:
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/quora
     username: postgres
+<<<<<<< HEAD
     password: password
+=======
+    password: camdigi00***
+>>>>>>> CommonController
 
   jpa:
     properties:

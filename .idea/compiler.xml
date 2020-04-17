@@ -11,9 +11,12 @@
         <module name="quora-api" />
       </profile>
     </annotationProcessing>
+<<<<<<< HEAD
     <bytecodeTargetLevel>
       <module name="Trello_quora" target="1.8" />
     </bytecodeTargetLevel>
+=======
+>>>>>>> CommonController
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
