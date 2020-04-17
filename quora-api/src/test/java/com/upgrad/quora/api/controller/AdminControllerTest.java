@@ -37,6 +37,7 @@ public class AdminControllerTest {
         mvc.perform(MockMvcRequestBuilders.delete("/admin/user/database_uuid4").header("authorization", "database_accesstoken1"))
                 .andExpect(status().isForbidden())
                 .andExpect(MockMvcResultMatchers.jsonPath("code").value("ATHR-003"));
+
     }
 
 
