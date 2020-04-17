@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="47a15d9d-c79e-46a9-bbbf-df38ac55657d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Time</find>
+      <find>a</find>
+      <find>API</find>
+      <find>003</find>
+      <find>002</find>
+      <find>004</find>
+      <find>quora</find>
+      <find>&quot;$ref&quot;: &quot;#/parameters/Authorization&quot;</find>
+      <find>uuid</find>
+      <find>l̥</find>
+      <find>Id</find>
+      <find>?</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\akumar41\Downloads\quora_stub\Trello_quora\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1aAIqJ4Zv79i9ynje1jrOGUsvb7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="yaml&#9;FILE&#9;file://E:/Trello_quora/quora_solution/Trello_quora/quora-api/src/main/resources/application.yaml&#10;quora&#9;FILE&#9;file://E:/Trello_quora/quora_solution/Trello_quora/quora-api/src/main/java/com/upgrad/quora/api/QuoraApiApplication.java&#10;quoraapi&#9;FILE&#9;file://E:/Trello_quora/26thsepquora/Trello_quora/quora-api/src/main/java/com/upgrad/quora/api/QuoraApiApplication.java&#10;.yaml&#9;FILE&#9;file://E:/Trello_quora/26thsepquora/Trello_quora/quora-api/src/main/resources/application.yaml&#10;userco&#9;FILE&#9;file://E:/Trello_quora/26thsepquora/Trello_quora/quora-api/src/main/java/com/upgrad/quora/api/controller/UserController.java&#10;userau&#9;FILE&#9;file://E:/Trello_quora/Trello_quora_solution/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/entity/UserAuthEntity.java&#10;userentity&#9;FILE&#9;file://E:/Trello_quora/Trello_quora_solution/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/entity/UserEntity.java&#10;commond&#9;PSI&#9;JAVA://com.upgrad.quora.service.dao.CommonDao&#10;userdao&#9;FILE&#9;file://E:/Trello_quora/Trello_quora_solution/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/dao/UserDao.java&#10;userc&#9;FILE&#9;file://E:/Trello_quora/Trello_quora_solution/Trello_quora/quora-api/src/main/java/com/upgrad/quora/api/controller/UserController.java&#10;quora-api&#9;FILE&#9;file://E:/Trello_quora/Trello_quora_solution/Trello_quora/quora-api/pom.xml&#10;answere&#9;FILE&#9;file://E:/Trello_quora/Trello_quora_solution/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/entity/AnswerEntity.java&#10;.json&#9;FILE&#9;file://E:/Trello_quora/Trello_quora_solution/Trello_quora/quora-api/src/main/resources/endpoints/quora.json&#10;usere&#9;FILE&#9;file://E:/Trello_quora/Trello_quora_solution/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/entity/UserEntity.java&#10;userd&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/dao/UserDao.java&#10;quoraap&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-api/src/main/java/com/upgrad/quora/api/QuoraApiApplication.java&#10;answer&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-api/src/test/java/com/upgrad/quora/api/controller/AnswerControllerTest.java&#10;question&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-api/src/test/java/com/upgrad/quora/api/controller/QuestionControllerTest.java&#10;common&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-api/src/test/java/com/upgrad/quora/api/controller/CommonControllerTest.java&#10;admincon&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-api/src/test/java/com/upgrad/quora/api/controller/AdminControllerTest.java&#10;appli&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-api/src/main/java/com/upgrad/quora/api/QuoraApiApplication.java&#10;answercontro&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-api/src/main/java/com/upgrad/quora/api/controller/AnswerController.java&#10;adminte&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-api/src/test/java/com/upgrad/quora/api/controller/AdminControllerTest.java&#10;admin&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-api/src/test/java/com/upgrad/quora/api/controller/AdminControllerTest.java&#10;userbu&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java&#10;.sql&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-db/src/main/resources/sql/quora.sql&#10;admins&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/business/AdminBusinessService.java&#10;userauth&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/entity/UserAuthEntity.java&#10;questione&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/entity/QuestionEntity.java&#10;answeren&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/entity/AnswerEntity.java&#10;adminc&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-api/src/main/java/com/upgrad/quora/api/controller/AdminController.java&#10;app&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-api/src/main/java/com/upgrad/quora/api/QuoraApiApplication.java&#10;answerda&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/dao/AnswerDao.java&#10;commonbusines&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/business/CommonBusinessService.java&#10;questionda&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/dao/QuestionDao.java&#10;admindao&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/dao/AdminDao.java&#10;application&#9;FILE&#9;file://E:/Trello_quora/Trello_quora/quora-api/src/main/java/com/upgrad/quora/api/QuoraApiApplication.java&#10;applicat&#9;PSI&#9;JAVA://com.upgrad.quora.api.QuoraApiApplication&#10;quora.sql&#9;FILE&#9;file://E:/Trello_quora/quora-db/src/main/resources/sql/quora.sql&#10;answerdao&#9;FILE&#9;file://E:/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/dao/AnswerDao.java&#10;answerServ&#9;FILE&#9;file://E:/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/business/AnswerBusinessService.java&#10;questionser&#9;FILE&#9;file://E:/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/business/QuestionBusinessService.java&#10;commondao&#9;FILE&#9;file://E:/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/dao/CommonDao.java&#10;commonbusiness&#9;FILE&#9;file://E:/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/business/CommonBusinessService.java&#10;adminservice&#9;FILE&#9;file://E:/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/business/AdminBusinessService.java&#10;userbusinessser&#9;FILE&#9;file://E:/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java&#10;userservice&#9;FILE&#9;file://E:/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java&#10;entity&#9;FILE&#9;file://E:/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/entity/UserEntity.java&#10;adminser&#9;FILE&#9;file://E:/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/business/AdminBusinessService.java&#10;usera&#9;FILE&#9;file://E:/Trello_quora/quora-service/src/main/java/com/upgrad/quora/service/entity/UserAuthEntity.java" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538752844056" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Group Project/Group-Project-Trello_Quora" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.6643678" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Trello_quora\quora-api\src\main\resources\endpoints" />
+      <recent name="E:\Trello_quora\quora-api\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.AdminControllerTest.deleteWithnonadminAsRole">
+    <configuration name="AdminControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="quora-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.upgrad.quora.api.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.upgrad.quora.api.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.upgrad.quora.api.controller.AdminControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdminControllerTest.deleteWithnonadminAsRole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="quora-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.upgrad.quora.api.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.upgrad.quora.api.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.upgrad.quora.api.controller.AdminControllerTest" />
+      <option name="METHOD_NAME" value="deleteWithnonadminAsRole" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="quora-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.upgrad.quora.api.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.upgrad.quora.api.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.upgrad.quora.api.controller.UserControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.signoutWithNonExistingAccessToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="quora-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.upgrad.quora.api.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.upgrad.quora.api.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.upgrad.quora.api.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="signoutWithNonExistingAccessToken" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuoraApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="quora-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.upgrad.quora.api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.upgrad.quora.api.QuoraApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.UserControllerTest" />
+      <item itemvalue="JUnit.UserControllerTest.signoutWithNonExistingAccessToken" />
+      <item itemvalue="Spring Boot.QuoraApiApplication" />
+      <item itemvalue="JUnit.AdminControllerTest" />
+      <item itemvalue="JUnit.AdminControllerTest.deleteWithnonadminAsRole" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AdminControllerTest.deleteWithnonadminAsRole" />
+        <item itemvalue="JUnit.AdminControllerTest" />
+        <item itemvalue="Spring Boot.QuoraApiApplication" />
+        <item itemvalue="JUnit.UserControllerTest.signoutWithNonExistingAccessToken" />
+        <item itemvalue="JUnit.UserControllerTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="47a15d9d-c79e-46a9-bbbf-df38ac55657d" name="Default Changelist" comment="" />
+      <created>1536048203738</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1536048203738</updated>
+      <workItem from="1536048207985" duration="96000" />
+      <workItem from="1536048309952" duration="21286000" />
+      <workItem from="1536076241742" duration="69040000" />
+      <workItem from="1536239262043" duration="3529000" />
+      <workItem from="1536322118495" duration="1261000" />
+      <workItem from="1536557083754" duration="18208000" />
+      <workItem from="1536926622708" duration="18991000" />
+      <workItem from="1537084619816" duration="13000" />
+      <workItem from="1537160815976" duration="33987000" />
+      <workItem from="1537252444687" duration="333000" />
+      <workItem from="1537857900467" duration="49714000" />
+      <workItem from="1538307248828" duration="14700000" />
+      <workItem from="1538372546023" duration="22949000" />
+      <workItem from="1538547186116" duration="2069000" />
+      <workItem from="1538550064158" duration="4375000" />
+      <workItem from="1538634479950" duration="3217000" />
+      <workItem from="1538642827225" duration="1059000" />
+      <workItem from="1538723860955" duration="5425000" />
+      <workItem from="1586172163512" duration="74233000" />
+      <workItem from="1586407519773" duration="2510000" />
+      <workItem from="1586433008604" duration="37397000" />
+      <workItem from="1586526837267" duration="30396000" />
+      <workItem from="1587112479834" duration="8073000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="762" y="-740" key="#Project_Structure" timestamp="1586532076102">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="762" y="-740" key="#Project_Structure/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586532076102" />
+    <state x="900" y="-644" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1586607123196">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="900" y="-644" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586607123196" />
+    <state x="579" y="-676" width="1182" height="554" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1586332520080">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="579" y="-676" width="1182" height="554" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586332520079" />
+    <state x="975" y="-715" key="#com.intellij.ide.util.MemberChooser" timestamp="1586525839320">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="975" y="-715" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586525839320" />
+    <state x="543" y="277" width="450" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1586613465071">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="543" y="277" width="450" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.834/487.-768.1366.738@0.0.1536.834" timestamp="1586613465071" />
+    <state x="487" y="-768" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586471788207">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="487" y="-768" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586471788207" />
+    <state x="900" y="-652" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587118821230">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="900" y="-652" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1587118821230" />
+    <state x="950" y="-697" key="FileChooserDialogImpl" timestamp="1586408453647">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="950" y="-697" key="FileChooserDialogImpl/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586408453647" />
+    <state width="1323" height="184" key="GridCell.Tab.0.bottom" timestamp="1587116819592">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.0.bottom/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1587116819592" />
+    <state width="1323" height="184" key="GridCell.Tab.0.center" timestamp="1587116819591">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.0.center/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1587116819591" />
+    <state width="1323" height="184" key="GridCell.Tab.0.left" timestamp="1587116819591">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.0.left/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1587116819591" />
+    <state width="1323" height="184" key="GridCell.Tab.0.right" timestamp="1587116819591">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.0.right/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1587116819591" />
+    <state width="1323" height="184" key="GridCell.Tab.1.bottom" timestamp="1587116272368">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.1.bottom/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1587116272368" />
+    <state width="1323" height="184" key="GridCell.Tab.1.center" timestamp="1587116272368">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.1.center/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1587116272368" />
+    <state width="1323" height="184" key="GridCell.Tab.1.left" timestamp="1587116272368">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.1.left/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1587116272368" />
+    <state width="1323" height="184" key="GridCell.Tab.1.right" timestamp="1587116272368">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.1.right/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1587116272368" />
+    <state width="1323" height="269" key="GridCell.Tab.2.bottom" timestamp="1586203181388">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.2.bottom/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586203181388" />
+    <state width="1323" height="269" key="GridCell.Tab.2.center" timestamp="1586203181387">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.2.center/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586203181387" />
+    <state width="1323" height="269" key="GridCell.Tab.2.left" timestamp="1586203181387">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.2.left/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586203181387" />
+    <state width="1323" height="269" key="GridCell.Tab.2.right" timestamp="1586203181388">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state width="1323" height="269" key="GridCell.Tab.2.right/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586203181388" />
+    <state x="700" y="-744" key="Maven.ArtifactSearchDialog" timestamp="1586177435751">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="700" y="-744" key="Maven.ArtifactSearchDialog/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586177435751" />
+    <state x="650" y="-768" key="SettingsEditor" timestamp="1586527150295">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="650" y="-768" key="SettingsEditor/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586527150295" />
+    <state x="579" y="-676" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586332243280">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="579" y="-676" width="1182" height="554" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586332243280" />
+    <state x="865" y="-575" key="com.intellij.ide.util.TipDialog" timestamp="1587112560263">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="865" y="-575" key="com.intellij.ide.util.TipDialog/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1587112560263" />
+    <state x="425" y="-497" key="extract.method.dialog" timestamp="1586597641452">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="425" y="-497" key="extract.method.dialog/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586597641452" />
+    <state x="552" y="-703" key="new project wizard" timestamp="1586330122386">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="552" y="-703" key="new project wizard/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586330122386" />
+    <state x="876" y="-768" key="refactoring.ChangeSignatureDialog" timestamp="1586338611233">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="876" y="-768" key="refactoring.ChangeSignatureDialog/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586338611233" />
+    <state x="833" y="-709" width="672" height="678" key="search.everywhere.popup" timestamp="1586444679045">
+      <screen x="487" y="-768" width="1366" height="738" />
+    </state>
+    <state x="833" y="-709" width="672" height="678" key="search.everywhere.popup/0.0.1536.834/487.-768.1366.738@487.-768.1366.738" timestamp="1586444679045" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="userEntity" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
