@@ -43,7 +43,7 @@ public class UserControllerTest {
     @Test
     public void signoutWithNonExistingAccessToken() throws Exception {
         mvc.perform(MockMvcRequestBuilders.post("/user/signout").header("authorization", "non_existing_access_token"))
-                .andExpect(status().isNotFound())
+                .andExpect(status().isUnauthorized())
                 .andExpect(MockMvcResultMatchers.jsonPath("code").value("SGR-001"));
     }
 }

@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(method = RequestMethod.DELETE, path = "/", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -21,7 +18,7 @@ public class AdminController {
     private UserDeleteService userDeleteService;
 
     @RequestMapping("/admin/user/{userId}")
-    public ResponseEntity<UserDeleteResponse> userDelete(@RequestHeader("authorization") final String authorization, final String userId) throws AuthorizationFailedException, UserNotFoundException {
+    public ResponseEntity<UserDeleteResponse> userDelete(@RequestHeader("authorization") final String authorization,@PathVariable ("userId") final String userId) throws AuthorizationFailedException, UserNotFoundException {
 
         String iDOfDeletedUser = userDeleteService.deleteUser(authorization, userId);
 
