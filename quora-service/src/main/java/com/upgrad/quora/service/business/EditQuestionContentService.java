@@ -17,29 +17,29 @@ public class EditQuestionContentService {
     private UserDao userDao;
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public QuestionEntity editQuestion(final String authorization,final QuestionEntity questionEntity,final String questionId) throws AuthorizationFailedException, InvalidQuestionException {
+    public QuestionEntity editQuestion(final String authorization, final QuestionEntity questionEntity, final String questionId) throws AuthorizationFailedException, InvalidQuestionException {
 
         UserAuthTokenEntity userAuthTokenEntity = userDao.getUserByAuthtoken(authorization);
 
-        if(userAuthTokenEntity == null){
-            throw new AuthorizationFailedException("ATHR-001","User has not signed in");
+        if (userAuthTokenEntity == null) {
+            throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         }
-        if(userAuthTokenEntity.getLogoutAt()!=null){
-            throw new AuthorizationFailedException("ATHR-002","User is signed out.Sign in first to edit the question");
+        if (userAuthTokenEntity.getLogoutAt() != null) {
+            throw new AuthorizationFailedException("ATHR-002", "User is signed out.Sign in first to edit the question");
         }
 
-        QuestionEntity  questionWhichNeedsToBeEdited = userDao.getQuestionFromUuid(questionId);
+        QuestionEntity questionWhichNeedsToBeEdited = userDao.getQuestionFromUuid(questionId);
 
 
-        if(questionWhichNeedsToBeEdited ==null){
-            throw new InvalidQuestionException("QUES-001","Entered question uuid does not exist");
+        if (questionWhichNeedsToBeEdited == null) {
+            throw new InvalidQuestionException("QUES-001", "Entered question uuid does not exist");
         }
 
         long id1 = questionWhichNeedsToBeEdited.getUser().getId();
         long id2 = userAuthTokenEntity.getUser().getId();
 
-        if(id1!=id2){
-            throw new AuthorizationFailedException("ATHR-003","Only the question owner can edit the question");
+        if (id1 != id2) {
+            throw new AuthorizationFailedException("ATHR-003", "Only the question owner can edit the question");
         }
 
         questionWhichNeedsToBeEdited.setContent(null);

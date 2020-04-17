@@ -108,5 +108,9 @@ public class UserDao {
         return questionEntity;
     }
 
+    public String deleteUser(final String userId){
+        entityManager.createQuery("DELETE from UserEntity where uuid=:userId").setParameter("userId", userId).executeUpdate();
+        return userId;
+    }
 
 }

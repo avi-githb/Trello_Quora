@@ -14,6 +14,7 @@ import java.time.ZonedDateTime;
 public class SignOutService {
     @Autowired
     private UserDao userDao;
+
     @Transactional(propagation = Propagation.REQUIRED)
     public UserAuthTokenEntity verifyAuth(final String authorization) throws SignOutRestrictedException {
         UserAuthTokenEntity userAuthTokenEntity = userDao.getUserByAuthtoken(authorization);

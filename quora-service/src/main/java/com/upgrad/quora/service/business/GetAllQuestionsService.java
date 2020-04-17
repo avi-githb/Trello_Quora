@@ -16,15 +16,16 @@ public class GetAllQuestionsService {
 
     @Autowired
     private UserDao userDao;
+
     @Transactional(propagation = Propagation.REQUIRED)
     public List<QuestionEntity> getAllQuestion(final String authorization) throws AuthorizationFailedException {
 
         UserAuthTokenEntity userAuthTokenEntity = userDao.getUserByAuthtoken(authorization);
-        if(userAuthTokenEntity == null){
-            throw new AuthorizationFailedException("ATHR-001","User has not signed in");
+        if (userAuthTokenEntity == null) {
+            throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         }
-        if(userAuthTokenEntity.getLogoutAt()!=null){
-            throw new AuthorizationFailedException("ATHR-002","User is signed out.Sign in first to get all questions");
+        if (userAuthTokenEntity.getLogoutAt() != null) {
+            throw new AuthorizationFailedException("ATHR-002", "User is signed out.Sign in first to get all questions");
         }
 
         List<QuestionEntity> allQuestions = userDao.getAllQuestions();

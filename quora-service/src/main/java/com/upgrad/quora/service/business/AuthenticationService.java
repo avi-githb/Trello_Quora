@@ -11,10 +11,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.ZonedDateTime;
 
+/**
+ * This class defines the Business logic for user SignIn Feature, and throws defined exceptions.
+ */
 
 @Service
 public class AuthenticationService {
 
+    /**
+     * Method Auth is used to define the business logic for SignIn process,
+     */
     @Autowired
     private UserDao userDao;
 
@@ -22,7 +28,7 @@ public class AuthenticationService {
     private PasswordCryptographyProvider passwordCryptographyProvider;
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public UserAuthTokenEntity auth (final String username, final String password) throws AuthenticationFailedException {
+    public UserAuthTokenEntity auth(final String username, final String password) throws AuthenticationFailedException {
         UserEntity userEntity = userDao.getUserByUsername(username);
         if (userEntity == null) {
             throw new AuthenticationFailedException("ATH-001", "This username does not exist");

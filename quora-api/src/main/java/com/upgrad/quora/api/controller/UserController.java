@@ -25,10 +25,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Base64;
 import java.util.UUID;
 
+/**
+ * All the features of User Controller are implemented in this class, SignUp,SignIn and SignOut
+ */
 
 @RestController
 @RequestMapping("/")
 public class UserController {
+
+    /**
+     * Method used for a new user registration, by default any user created is a nonadmin user.
+     */
 
     @Autowired
     private SignupBusinessService signupBusinessService;
@@ -55,6 +62,10 @@ public class UserController {
         return new ResponseEntity<SignupUserResponse>(userResponse, HttpStatus.CREATED);
     }
 
+    /**
+     * Method used to SignIn, user have to provide the Username and Password in Base64 in the following format : Basic Username:Password
+     */
+
     @Autowired
     private AuthenticationService authenticationService;
 
@@ -67,6 +78,10 @@ public class UserController {
         String decodeLevel2 = new String(decodeLevel1[1]);
         String[] decodedTextArray = decodeLevel2.split(":");
 
+        /**
+         * decodedTextArray[0] = UserName
+         * decodedTextArray[1] = Password
+         */
         UserAuthTokenEntity userAuthToken = authenticationService.auth(decodedTextArray[0], decodedTextArray[1]);
 
         UserEntity user = userAuthToken.getUser();
@@ -78,11 +93,15 @@ public class UserController {
         return new ResponseEntity<SigninResponse>(signinResponse, headers, HttpStatus.OK);
     }
 
+    /**
+     * Method used to SignOut a user, User have to provide AccessToken in order to SignOut.
+     */
+
     @Autowired
     private SignOutService signOutService;
 
     @RequestMapping(method = RequestMethod.POST, path = "/user/signout", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<SignoutResponse> signout (@RequestHeader ("authorization") final String authorization) throws SignOutRestrictedException {
+    public ResponseEntity<SignoutResponse> signout(@RequestHeader("authorization") final String authorization) throws SignOutRestrictedException {
 
         UserAuthTokenEntity userAuthTokenEntity = signOutService.verifyAuth(authorization);
 
