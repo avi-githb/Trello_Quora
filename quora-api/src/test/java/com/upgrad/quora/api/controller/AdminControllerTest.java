@@ -42,7 +42,7 @@ public class AdminControllerTest {
 
 
     //This test case passes when you try to delete the user which does not exist in the database.
-    @Test
+    @Testnewlocalbranchname
     public void deleteNonExistingUser() throws Exception {
         mvc.perform(MockMvcRequestBuilders.delete("/admin/user/non_existing_user_uuid").header("authorization", "database_accesstoken"))
                 .andExpect(status().isNotFound())
