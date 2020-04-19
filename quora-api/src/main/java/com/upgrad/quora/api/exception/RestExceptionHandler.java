@@ -29,7 +29,10 @@ public class RestExceptionHandler {
     public ResponseEntity<ErrorResponse> AuthorizationFailedException(AuthorizationFailedException sre, WebRequest request){
         return new ResponseEntity<ErrorResponse>(new ErrorResponse().code(sre.getCode()).message(sre.getErrorMessage()), HttpStatus.FORBIDDEN);
     }
-
+    @ExceptionHandler(InvalidQuestionException.class)
+    public ResponseEntity<ErrorResponse> InvalidQuestionException (InvalidQuestionException iqe, WebRequest request){
+        return new ResponseEntity<ErrorResponse>(new ErrorResponse().code(iqe.getCode()).message(iqe.getErrorMessage()),HttpStatus.UNAUTHORIZED);
+    }
 
     @ExceptionHandler(SignOutRestrictedException.class)
     public ResponseEntity<ErrorResponse> SignOutRestrictedException(SignOutRestrictedException sre, WebRequest request){
