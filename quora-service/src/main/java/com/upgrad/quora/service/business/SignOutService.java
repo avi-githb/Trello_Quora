@@ -21,6 +21,7 @@ public class SignOutService {
         }
 
         userAuthTokenEntity.setLogoutAt(ZonedDateTime.now());
+        userDao.createAuthToken(userAuthTokenEntity);
         return userAuthTokenEntity;
     }
 }

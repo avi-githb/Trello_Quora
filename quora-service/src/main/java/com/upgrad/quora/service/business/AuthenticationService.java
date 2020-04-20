@@ -40,9 +40,13 @@ public class AuthenticationService {
             userAuthTokenEntity.setUuid(userEntity.getUuid());
             userAuthTokenEntity.setLoginAt(now);
             userAuthTokenEntity.setExpiresAt(expiresAt);
-            userAuthTokenEntity.setLogoutAt(ZonedDateTime.now());
+
+            //  userAuthTokenEntity.setLogoutAt(ZonedDateTime.now());
 
             userDao.createAuthToken(userAuthTokenEntity);
+
+      /*      System.out.println("Testttttttttttttttttttttttttttttttttttttttt");
+            System.out.println(userAuthTokenEntity.getLogoutAt());*/
 
             userDao.updateUser(userEntity);
             return userAuthTokenEntity;
