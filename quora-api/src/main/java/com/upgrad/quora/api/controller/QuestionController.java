@@ -92,6 +92,7 @@ public class QuestionController {
     private DeleteQuestionService deleteQuestionService;
 
     @RequestMapping(method = RequestMethod.DELETE, path = "question/delete/{questionId}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+
     public ResponseEntity<QuestionDeleteResponse> deleteQuestion(@RequestHeader("authorization")final String authorization, final String questionId) throws AuthorizationFailedException, InvalidQuestionException {
 
         String deletedQuestionUuid = deleteQuestionService.deleteQuestion(authorization,questionId);

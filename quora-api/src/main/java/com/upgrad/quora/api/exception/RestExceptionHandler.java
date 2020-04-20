@@ -38,4 +38,11 @@ public class RestExceptionHandler {
     public ResponseEntity<ErrorResponse> SignOutRestrictedException(SignOutRestrictedException sre, WebRequest request){
         return new ResponseEntity<ErrorResponse>(new ErrorResponse().code(sre.getCode()).message(sre.getErrorMessage()), HttpStatus.UNAUTHORIZED);
     }
+
+
+    @ExceptionHandler(AnswerNotFoundException.class)
+    public ResponseEntity<ErrorResponse> AnswerNotFoundException(AnswerNotFoundException sre, WebRequest request){
+        return new ResponseEntity<ErrorResponse>(new ErrorResponse().code(sre.getCode()).message(sre.getErrorMessage()), HttpStatus.UNAUTHORIZED);
+    }
+
 }
