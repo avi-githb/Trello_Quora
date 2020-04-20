@@ -92,4 +92,16 @@ public class RestExceptionHandler {
     public ResponseEntity<ErrorResponse> UserNotFoundException(UserNotFoundException unf, WebRequest request) {
         return new ResponseEntity<ErrorResponse>(new ErrorResponse().code(unf.getCode()).message(unf.getErrorMessage()), HttpStatus.NOT_FOUND);
     }
+
+    /**
+     * AnswerNotFoundException - HttpStatus.NOT_FOUND
+     *
+     * @param anf
+     * @param request
+     * @return
+     */
+    @ExceptionHandler(AnswerNotFoundException.class)
+    public ResponseEntity<ErrorResponse> AnswerNotFoundException(AnswerNotFoundException anf, WebRequest request) {
+        return new ResponseEntity<ErrorResponse>(new ErrorResponse().code(anf.getCode()).message(anf.getErrorMessage()), HttpStatus.NOT_FOUND);
+    }
 }

@@ -1,5 +1,6 @@
 package com.upgrad.quora.service.dao;
 
+import com.upgrad.quora.service.entity.AnswerEntity;
 import com.upgrad.quora.service.entity.QuestionEntity;
 import com.upgrad.quora.service.entity.UserAuthTokenEntity;
 import com.upgrad.quora.service.entity.UserEntity;
@@ -68,6 +69,15 @@ public class UserDao {
         }
     }
 
+    public AnswerEntity createAnswer(final AnswerEntity answerEntity) {
+        entityManager.persist(answerEntity);
+        return answerEntity;
+    }
+
+    public void deleteAnswerFromUuid(final String answerId) {
+        entityManager.createQuery("delete from AnswerEntity u where u.uuid =:answerId").setParameter("answerId", answerId).executeUpdate();
+    }
+
     public void deleteQuestionFromUuid(final String questionId) {
         entityManager.createQuery("delete from QuestionEntity u where u.uuid =:questionId").setParameter("questionId", questionId).executeUpdate();
     }
@@ -108,9 +118,27 @@ public class UserDao {
         return questionEntity;
     }
 
-    public String deleteUser(final String userId){
+    public List<AnswerEntity> getAnswersToQuestion(final QuestionEntity question) {
+        try {
+            List<AnswerEntity> allAnswersToQuestion = entityManager.createNamedQuery("getAnswersByQuestionId", AnswerEntity.class).setParameter("question", question).getResultList();
+            return allAnswersToQuestion;
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
+
+    public String deleteUser(final String userId) {
         entityManager.createQuery("DELETE from UserEntity where uuid=:userId").setParameter("userId", userId).executeUpdate();
         return userId;
+    }
+
+    public AnswerEntity getAnswerFromUuid(final String answerUuId) {
+        try {
+            return entityManager.createNamedQuery("getAnswerByUuid", AnswerEntity.class).setParameter("uuid", answerUuId).getSingleResult();
+
+        } catch (NoResultException nre) {
+            return null;
+        }
     }
 
 }

@@ -72,12 +72,12 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST, path = "/user/signin", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<SigninResponse> signin(@RequestHeader("authorization") final String authorization) throws AuthenticationFailedException {
-        byte[] decode = Base64.getDecoder().decode(authorization);
-        String decodedText = new String(decode);
-        String[] decodeLevel1 = decodedText.split("Basic ");
 
-        String decodeLevel2 = new String(decodeLevel1[1]);
-        String[] decodedTextArray = decodeLevel2.split(":");
+        String[] splitText = authorization.split("Basic ");
+
+        byte[] decode = Base64.getDecoder().decode(splitText[1]);
+        String decodedText = new String(decode);
+        String[] decodedTextArray = decodedText.split(":");
 
         /**
          * decodedTextArray[0] = UserName
