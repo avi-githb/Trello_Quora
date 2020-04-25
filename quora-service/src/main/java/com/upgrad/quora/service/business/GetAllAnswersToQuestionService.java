@@ -37,7 +37,7 @@ public class GetAllAnswersToQuestionService {
 
     /**
      * this method return "uuid" of the answer, "content" of the question and "content" of all the answers posted for
-     that particular question from the database in the JSON response with the corresponding HTTP status.
+     that particular question.
      */
     public List<AnswerEntity> getAllAnswersToQuestion(final String questionId, final String accessToken) throws AuthorizationFailedException, InvalidQuestionException {
 

@@ -70,7 +70,7 @@ public class QuestionController {
     private EditQuestionContentService editQuestionContentService;
 
     @RequestMapping(method = RequestMethod.PUT, path = "/question/edit/{questionId}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<QuestionEditResponse> editQuestionContent(@RequestHeader("authorization") final String authorization,@PathVariable ("questionId")final String questionId,final QuestionEditRequest questionEditRequest) throws AuthorizationFailedException, InvalidQuestionException {
+    public ResponseEntity<QuestionEditResponse> editQuestionContent(@RequestHeader("authorization") final String authorization, @PathVariable("questionId") final String questionId, final QuestionEditRequest questionEditRequest) throws AuthorizationFailedException, InvalidQuestionException {
         QuestionEntity questionEntity = new QuestionEntity();
         questionEntity.setContent(questionEditRequest.getContent());
 
@@ -89,7 +89,7 @@ public class QuestionController {
     private GetAllQuestionByUserSerivce getAllQuestionByUserSerivce;
 
     @RequestMapping(method = RequestMethod.GET, path = "/question/all/{userId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<List<QuestionDetailsResponse>> getAllQuestionByUser(@RequestHeader("authorization") final String authorization,@PathVariable("userId") final String userId) throws AuthenticationFailedException, AuthorizationFailedException, UserNotFoundException {
+    public ResponseEntity<List<QuestionDetailsResponse>> getAllQuestionByUser(@RequestHeader("authorization") final String authorization, @PathVariable("userId") final String userId) throws AuthenticationFailedException, AuthorizationFailedException, UserNotFoundException {
 
         List<QuestionEntity> allQuestionByUser = getAllQuestionByUserSerivce.getAllQuestionByUser(userId, authorization);
 
@@ -112,7 +112,7 @@ public class QuestionController {
     private DeleteQuestionService deleteQuestionService;
 
     @RequestMapping(method = RequestMethod.DELETE, path = "question/delete/{questionId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<QuestionDeleteResponse> deleteQuestion(@RequestHeader("authorization") final String authorization,@PathVariable("questionId") final String questionId) throws AuthorizationFailedException, InvalidQuestionException {
+    public ResponseEntity<QuestionDeleteResponse> deleteQuestion(@RequestHeader("authorization") final String authorization, @PathVariable("questionId") final String questionId) throws AuthorizationFailedException, InvalidQuestionException {
 
         String deletedQuestionUuid = deleteQuestionService.deleteQuestion(authorization, questionId);
 

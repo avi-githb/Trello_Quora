@@ -34,7 +34,7 @@ public class EditAnswerService {
     @Transactional(propagation = Propagation.REQUIRED)
 
     /**
-     *
+     *this method is used to edit an already created answer.
      */
     public AnswerEntity editAnswer(final String authorization, final AnswerEntity answerEntity, final String answerId) throws AuthorizationFailedException, AnswerNotFoundException {
 

@@ -15,7 +15,7 @@ import java.time.ZonedDateTime;
 import java.util.UUID;
 
 /**
- * This class is used to create a question in the Quora Application which will be shown to all the users. Any user can access this endpoint.
+ * This class is used to create a question in the Quora Application which will be shown to all the users.
  */
 
 @Service
@@ -33,8 +33,7 @@ public class CreateQuestionService {
     @Transactional(propagation = Propagation.REQUIRED)
 
     /**
-     * This method saves the question information in the database and return the 'uuid' of the question and
-     message 'QUESTION CREATED' in the JSON response with the corresponding HTTP status
+     * This method saves the question information in the database.
      */
 
     public QuestionEntity createQuestion(final String authorization, final QuestionEntity questionEntity) throws AuthorizationFailedException {

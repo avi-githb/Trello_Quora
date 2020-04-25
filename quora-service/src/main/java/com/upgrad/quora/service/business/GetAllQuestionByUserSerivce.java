@@ -38,7 +38,7 @@ public class GetAllQuestionByUserSerivce {
 
     /**
      * this method return 'uuid' and 'content' of all the questions posed by the corresponding user
-     from the database in the JSON response with the corresponding HTTP status.
+
      */
     public List<QuestionEntity> getAllQuestionByUser(final String userId, final String accessToken) throws AuthenticationFailedException, AuthorizationFailedException, UserNotFoundException {
 

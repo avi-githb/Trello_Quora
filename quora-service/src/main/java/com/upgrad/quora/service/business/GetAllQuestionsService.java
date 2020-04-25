@@ -34,7 +34,7 @@ public class GetAllQuestionsService {
     @Transactional(propagation = Propagation.REQUIRED)
 
     /**
-     * this method returns'uuid' and 'content' of all the questions from the database in the JSON response with the corresponding HTTP status.
+     * this method returns'uuid' and 'content' of all the questions from the database..
      */
     public List<QuestionEntity> getAllQuestion(final String authorization) throws AuthorizationFailedException {
 

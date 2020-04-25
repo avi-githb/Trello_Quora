@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 /**
- * This class is used to delete a user from the Quora Application. Only an admin is authorized to access this endpoint.
+ * This class is used to delete a user from the Quora Application.
  */
 @Service
 public class UserDeleteService {

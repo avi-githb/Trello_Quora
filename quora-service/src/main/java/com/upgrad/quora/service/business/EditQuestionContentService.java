@@ -33,8 +33,7 @@ public class EditQuestionContentService {
     @Transactional(propagation = Propagation.REQUIRED)
 
     /**
-     * this method edit the question in the database and return 'uuid' of the edited question and
-     message 'QUESTION EDITED' in the JSON response with the corresponding HTTP status.
+     * this method edit the question in the database
      */
 
     public QuestionEntity editQuestion(final String authorization, final QuestionEntity questionEntity, final String questionId) throws AuthorizationFailedException, InvalidQuestionException {

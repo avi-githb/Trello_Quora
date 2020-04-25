@@ -34,8 +34,7 @@ public class DeleteQuestionService {
     @Transactional(propagation = Propagation.REQUIRED)
 
     /**
-     * this method delete the question from the database and return 'uuid' of the deleted question and
-     message -'QUESTION DELETED' in the JSON response with the corresponding HTTP status.
+     * this method delete the question from the database and return 'uuid' of the deleted question
      */
     public String deleteQuestion(final String authorization, final String questionId) throws InvalidQuestionException, AuthorizationFailedException {
 
@@ -81,7 +80,7 @@ public class DeleteQuestionService {
 
         String deletedQuestionUuid = questionEntity.getUuid();
 
-       questionDao.deleteQuestionFromUuid(deletedQuestionUuid);
+        questionDao.deleteQuestionFromUuid(deletedQuestionUuid);
         return deletedQuestionUuid; //return String
     }
 }

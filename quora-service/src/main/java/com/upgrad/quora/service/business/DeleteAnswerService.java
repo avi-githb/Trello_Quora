@@ -33,8 +33,7 @@ public class DeleteAnswerService {
     @Transactional(propagation = Propagation.REQUIRED)
 
     /**
-     * This method delete the answer from the database and return "uuid" of the deleted answer and
-     message "ANSWER DELETED" in the JSON response with the corresponding HTTP status.
+     * This method delete the answer from the database and return "uuid" of the deleted answer.
      */
 
     public String deleteAnswer(final String authorization, final String answerId) throws AnswerNotFoundException, AuthorizationFailedException {

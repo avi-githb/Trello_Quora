@@ -30,10 +30,8 @@ public class AuthenticationService {
     @Transactional(propagation = Propagation.REQUIRED)
 
     /**
-     * Method Auth is used for user authentication.
+     * Method Auth is used for user authentication/ sign in purpose.
      * The user authenticates in the application and after successful authentication, JWT token is given to a user
-     * This endpoint requests for the User credentials to be passed in the authorization field of header as part of Basic authentication.
-     * We need to pass "Basic username:password", (where username:password of the String is encoded to Base64 format)
      */
 
     public UserAuthTokenEntity auth(final String username, final String password) throws AuthenticationFailedException {

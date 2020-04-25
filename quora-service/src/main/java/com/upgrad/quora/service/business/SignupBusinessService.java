@@ -25,9 +25,7 @@ public class SignupBusinessService {
     @Transactional(propagation = Propagation.REQUIRED)
 
     /**
-     * If the information is provided by a non-existing user, then save the user information in the database and
-     return the 'uuid' of the registered user and message 'USER SUCCESSFULLY REGISTERED' in the JSON response with the corresponding HTTP status.
-     * when a user signs up using this endpoint then the role of the person will be 'nonadmin' by default.
+     * If the information is provided by a non-existing user, then save the user information in the database
      */
     public UserEntity signup(UserEntity userEntity) throws SignUpRestrictedException {
 

@@ -22,9 +22,7 @@ public class SignOutService {
     @Transactional(propagation = Propagation.REQUIRED)
 
     /**
-     * If the access token provided by the user is valid, update the LogoutAt time of the user in the database and
-     return the 'uuid' of the signed out user from 'users' table and message 'SIGNED OUT SUCCESSFULLY'
-     in the JSON response with the corresponding HTTP status.
+     * If the access token provided by the user is valid, update the LogoutAt time of the user in the database
      */
     public UserAuthTokenEntity verifyAuth(final String authorization) throws SignOutRestrictedException {
         UserAuthTokenEntity userAuthTokenEntity = userDao.getUserByAuthtoken(authorization);

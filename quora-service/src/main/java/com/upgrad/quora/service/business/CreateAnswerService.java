@@ -36,11 +36,9 @@ public class CreateAnswerService {
     @Transactional(propagation = Propagation.REQUIRED)
 
     /**
-     * Method createAnswer is used to create an answer to a particular question. Any user can access this endpoint.
-     * This endpoint requests for the attribute in "Answer Request", the path variable 'questionId ' as a string for the corresponding question
+     * Method createAnswer is used to create an answer to a particular question.
+     * This method requests for the attribute in "Answer Request", the path variable 'questionId ' as a string for the corresponding question
      which is to be answered in the database and access token of the signed in user as a string in authorization Request Header.
-     * save the answer information in the database and return the "uuid" of the answer and
-     message "ANSWER CREATED" in the JSON response with the corresponding HTTP status.
      */
 
     public AnswerEntity createAnswer(final String authorization, final AnswerEntity answerEntity, String questionId) throws AuthorizationFailedException, InvalidQuestionException {
