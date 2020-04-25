@@ -34,7 +34,7 @@ import java.util.UUID;
 public class UserController {
 
     /**
-     * Method used for a new user registration, by default any user created is a nonadmin user.
+     * Method used for a new user registration, by default any user created is a Nonadmin user.
      */
 
     @Autowired
