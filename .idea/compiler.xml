@@ -1,31 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-<<<<<<< HEAD
     <bytecodeTargetLevel>
       <module name="quora-api" target="1.8" />
       <module name="quora-db" target="1.8" />
       <module name="quora-service" target="1.8" />
       <module name="Trello_quora" target="1.8" />
     </bytecodeTargetLevel>
-=======
-    <annotationProcessing>
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="quora-db" />
-        <module name="quora-service" />
-        <module name="quora-api" />
-      </profile>
-    </annotationProcessing>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="quora-api" options="-parameters" />
-      <module name="quora-db" options="-parameters" />
-      <module name="quora-service" options="-parameters" />
-    </option>
->>>>>>> FinalCodeIntegeration_Test_Branch
   </component>
 </project>
