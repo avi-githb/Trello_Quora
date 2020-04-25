@@ -51,15 +51,19 @@ public class QuestionController {
     public ResponseEntity<List<QuestionDetailsResponse>> getAllQuestions(@RequestHeader("authorization") final String authorization) throws AuthorizationFailedException {
 
         List<QuestionEntity> allQuestion = getAllQuestionsService.getAllQuestion(authorization);
-        QuestionEntity temp = new QuestionEntity();
+        return getListResponseEntity(allQuestion);
+
+    }
+
+    private ResponseEntity<List<QuestionDetailsResponse>> getListResponseEntity(List<QuestionEntity> allQuestion) {
+        QuestionEntity questionEntity;
         List<QuestionDetailsResponse> displayAllQuestions = new ArrayList<>();
         for (int i = 0; i < allQuestion.size(); i++) {
-            temp = allQuestion.get(i);
-            QuestionDetailsResponse questionDetailsResponse = new QuestionDetailsResponse().id(temp.getUuid()).content(temp.getContent());
+            questionEntity = allQuestion.get(i);
+            QuestionDetailsResponse questionDetailsResponse = new QuestionDetailsResponse().id(questionEntity.getUuid()).content(questionEntity.getContent());
             displayAllQuestions.add(questionDetailsResponse);
         }
         return new ResponseEntity<List<QuestionDetailsResponse>>(displayAllQuestions, HttpStatus.OK);
-
     }
 
     /**
@@ -93,14 +97,7 @@ public class QuestionController {
 
         List<QuestionEntity> allQuestionByUser = getAllQuestionByUserSerivce.getAllQuestionByUser(userId, authorization);
 
-        QuestionEntity questionEntity;
-        List<QuestionDetailsResponse> displayAllQuestionsByUser = new ArrayList<>();
-        for (int i = 0; i < allQuestionByUser.size(); i++) {
-            questionEntity = allQuestionByUser.get(i);
-            QuestionDetailsResponse questionDetailsResponse = new QuestionDetailsResponse().id(questionEntity.getUuid()).content(questionEntity.getContent());
-            displayAllQuestionsByUser.add(questionDetailsResponse);
-        }
-        return new ResponseEntity<List<QuestionDetailsResponse>>(displayAllQuestionsByUser, HttpStatus.OK);
+        return getListResponseEntity(allQuestionByUser);
 
     }
 

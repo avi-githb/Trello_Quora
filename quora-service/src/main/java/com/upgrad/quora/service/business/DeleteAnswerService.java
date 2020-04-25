@@ -1,14 +1,12 @@
 package com.upgrad.quora.service.business;
 
 import com.upgrad.quora.service.dao.AnswerDao;
-import com.upgrad.quora.service.dao.QuestionDao;
 import com.upgrad.quora.service.dao.UserDao;
 import com.upgrad.quora.service.entity.AnswerEntity;
 import com.upgrad.quora.service.entity.UserAuthTokenEntity;
 import com.upgrad.quora.service.entity.UserEntity;
 import com.upgrad.quora.service.exception.AnswerNotFoundException;
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
-import com.upgrad.quora.service.exception.InvalidQuestionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -27,8 +25,6 @@ public class DeleteAnswerService {
     @Autowired
     private AnswerDao answerDao;
 
-    @Autowired
-    private QuestionDao questionDao;
 
     @Transactional(propagation = Propagation.REQUIRED)
 
