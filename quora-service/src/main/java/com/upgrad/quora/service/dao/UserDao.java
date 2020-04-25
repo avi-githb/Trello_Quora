@@ -47,51 +47,6 @@ public class UserDao {
         }
     }
 
-    public List<QuestionEntity> getAllQuestions() {
-
-        List<Object[]> objects = entityManager.createNamedQuery("getAllQuestions", Object[].class).getResultList();
-        List<QuestionEntity> allQuestions = new ArrayList<QuestionEntity>();
-        for (Object[] row : objects) {
-            QuestionEntity temp = new QuestionEntity();
-            temp.setUuid((String) row[0]);
-            temp.setContent((String) row[1]);
-            allQuestions.add(temp);
-        }
-        return allQuestions;
-    }
-
-    public QuestionEntity getQuestionFromUuid(final String questionId) {
-        try {
-            return entityManager.createNamedQuery("getQuestionByUuid", QuestionEntity.class).setParameter("uuid", questionId).getSingleResult();
-
-        } catch (NoResultException nre) {
-            return null;
-        }
-    }
-
-    public AnswerEntity createAnswer(final AnswerEntity answerEntity) {
-        entityManager.persist(answerEntity);
-        return answerEntity;
-    }
-
-    public void deleteAnswerFromUuid(final String answerId) {
-        entityManager.createQuery("delete from AnswerEntity u where u.uuid =:answerId").setParameter("answerId", answerId).executeUpdate();
-    }
-
-    public void deleteQuestionFromUuid(final String questionId) {
-        entityManager.createQuery("delete from QuestionEntity u where u.uuid =:questionId").setParameter("questionId", questionId).executeUpdate();
-    }
-
-
-    public List<QuestionEntity> getQuestionFromId(final UserEntity user) {
-        try {
-            List<QuestionEntity> allQuestionFromUserId = entityManager.createNamedQuery("getQuestionById", QuestionEntity.class).setParameter("user", user).getResultList();
-            return allQuestionFromUserId;
-        } catch (NoResultException nre) {
-            return null;
-        }
-    }
-
 
     public UserEntity getUserFromUuid(final String userId) {
         try {
@@ -113,32 +68,11 @@ public class UserDao {
     }
 
 
-    public QuestionEntity createQuestion(final QuestionEntity questionEntity) {
-        entityManager.persist(questionEntity);
-        return questionEntity;
-    }
-
-    public List<AnswerEntity> getAnswersToQuestion(final QuestionEntity question) {
-        try {
-            List<AnswerEntity> allAnswersToQuestion = entityManager.createNamedQuery("getAnswersByQuestionId", AnswerEntity.class).setParameter("question", question).getResultList();
-            return allAnswersToQuestion;
-        } catch (NoResultException nre) {
-            return null;
-        }
-    }
-
     public String deleteUser(final String userId) {
+        UserEntity userFromUuid = getUserFromUuid(userId);
         entityManager.createQuery("DELETE from UserEntity where uuid=:userId").setParameter("userId", userId).executeUpdate();
-        return userId;
+        return userFromUuid.getUuid();
     }
 
-    public AnswerEntity getAnswerFromUuid(final String answerUuId) {
-        try {
-            return entityManager.createNamedQuery("getAnswerByUuid", AnswerEntity.class).setParameter("uuid", answerUuId).getSingleResult();
-
-        } catch (NoResultException nre) {
-            return null;
-        }
-    }
 
 }

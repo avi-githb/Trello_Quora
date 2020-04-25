@@ -70,7 +70,7 @@ public class QuestionController {
     private EditQuestionContentService editQuestionContentService;
 
     @RequestMapping(method = RequestMethod.PUT, path = "/question/edit/{questionId}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<QuestionEditResponse> editQuestionContent(@RequestHeader("authorization") final String authorization, final QuestionEditRequest questionEditRequest, final String questionId) throws AuthorizationFailedException, InvalidQuestionException {
+    public ResponseEntity<QuestionEditResponse> editQuestionContent(@RequestHeader("authorization") final String authorization,@PathVariable ("questionId")final String questionId,final QuestionEditRequest questionEditRequest) throws AuthorizationFailedException, InvalidQuestionException {
         QuestionEntity questionEntity = new QuestionEntity();
         questionEntity.setContent(questionEditRequest.getContent());
 
@@ -89,15 +89,15 @@ public class QuestionController {
     private GetAllQuestionByUserSerivce getAllQuestionByUserSerivce;
 
     @RequestMapping(method = RequestMethod.GET, path = "/question/all/{userId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<List<QuestionDetailsResponse>> getAllQuestionByUser(@RequestHeader("authorization") final String authorization, final String userId) throws AuthenticationFailedException, AuthorizationFailedException, UserNotFoundException {
+    public ResponseEntity<List<QuestionDetailsResponse>> getAllQuestionByUser(@RequestHeader("authorization") final String authorization,@PathVariable("userId") final String userId) throws AuthenticationFailedException, AuthorizationFailedException, UserNotFoundException {
 
         List<QuestionEntity> allQuestionByUser = getAllQuestionByUserSerivce.getAllQuestionByUser(userId, authorization);
 
-        QuestionEntity temp1 = new QuestionEntity();
+        QuestionEntity questionEntity;
         List<QuestionDetailsResponse> displayAllQuestionsByUser = new ArrayList<>();
         for (int i = 0; i < allQuestionByUser.size(); i++) {
-            temp1 = allQuestionByUser.get(i);
-            QuestionDetailsResponse questionDetailsResponse = new QuestionDetailsResponse().id(temp1.getUuid()).content(temp1.getContent());
+            questionEntity = allQuestionByUser.get(i);
+            QuestionDetailsResponse questionDetailsResponse = new QuestionDetailsResponse().id(questionEntity.getUuid()).content(questionEntity.getContent());
             displayAllQuestionsByUser.add(questionDetailsResponse);
         }
         return new ResponseEntity<List<QuestionDetailsResponse>>(displayAllQuestionsByUser, HttpStatus.OK);
@@ -112,7 +112,7 @@ public class QuestionController {
     private DeleteQuestionService deleteQuestionService;
 
     @RequestMapping(method = RequestMethod.DELETE, path = "question/delete/{questionId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<QuestionDeleteResponse> deleteQuestion(@RequestHeader("authorization") final String authorization, final String questionId) throws AuthorizationFailedException, InvalidQuestionException {
+    public ResponseEntity<QuestionDeleteResponse> deleteQuestion(@RequestHeader("authorization") final String authorization,@PathVariable("questionId") final String questionId) throws AuthorizationFailedException, InvalidQuestionException {
 
         String deletedQuestionUuid = deleteQuestionService.deleteQuestion(authorization, questionId);
 

@@ -1,5 +1,7 @@
 package com.upgrad.quora.service.business;
 
+import com.upgrad.quora.service.dao.AnswerDao;
+import com.upgrad.quora.service.dao.QuestionDao;
 import com.upgrad.quora.service.dao.UserDao;
 import com.upgrad.quora.service.entity.AnswerEntity;
 
@@ -12,40 +14,68 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * This class is used to edit an answer. Only the owner of the answer can edit the answer.
+ */
+
 @Service
 public class EditAnswerService {
     @Autowired
     private UserDao userDao;
 
+
+    @Autowired
+    private AnswerDao answerDao;
+
+    @Autowired
+    private QuestionDao questionDao;
+
+
     @Transactional(propagation = Propagation.REQUIRED)
+
+    /**
+     *
+     */
     public AnswerEntity editAnswer(final String authorization, final AnswerEntity answerEntity, final String answerId) throws AuthorizationFailedException, AnswerNotFoundException {
 
         UserAuthTokenEntity userAuthTokenEntity = userDao.getUserByAuthtoken(authorization);
 
-        if(userAuthTokenEntity == null){
-            throw new AuthorizationFailedException("ATHR-001","User has not signed in");
+        /**
+         *If the access token provided by the user does not exist in the database throw "AuthorizationFailedException"
+         */
+        if (userAuthTokenEntity == null) {
+            throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         }
-        if(userAuthTokenEntity.getLogoutAt()!=null){
-            throw new AuthorizationFailedException("ATHR-002","User is signed out.Sign in first to edit an answer");
+
+        /**
+         *If the user has signed out, throw "AuthorizationFailedException"
+         */
+        if (userAuthTokenEntity.getLogoutAt() != null) {
+            throw new AuthorizationFailedException("ATHR-002", "User is signed out.Sign in first to edit an answer");
         }
 
-        AnswerEntity answerToBeEdited = userDao.getAnswerFromUuid(answerId);
+        AnswerEntity answerToBeEdited = answerDao.getAnswerFromUuid(answerId);
 
-
-        if(answerToBeEdited ==null){
-            throw new AnswerNotFoundException("ANS-001","Entered answer uuid does not exist");
+        /**
+         *If the answer with uuid which is to be edited does not exist in the database, throw "AnswerNotFoundException"
+         */
+        if (answerToBeEdited == null) {
+            throw new AnswerNotFoundException("ANS-001", "Entered answer uuid does not exist");
         }
 
         long id1 = answerToBeEdited.getUser().getId();
         long id2 = userAuthTokenEntity.getUser().getId();
 
-        if(id1!=id2){
-            throw new AuthorizationFailedException("ATHR-003","Only the answer owner can edit the answer");
+        /**
+         *if the user who is not the owner of the answer tries to edit the answer throw "AuthorizationFailedException"
+         */
+        if (id1 != id2) {
+            throw new AuthorizationFailedException("ATHR-003", "Only the answer owner can edit the answer");
         }
 
         answerToBeEdited.setAnswer(null);
         answerToBeEdited.setAnswer(answerEntity.getAnswer());
 
-        return  answerToBeEdited;
+        return answerToBeEdited;
     }
 }

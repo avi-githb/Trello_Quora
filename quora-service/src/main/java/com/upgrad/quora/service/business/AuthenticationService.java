@@ -28,13 +28,26 @@ public class AuthenticationService {
     private PasswordCryptographyProvider passwordCryptographyProvider;
 
     @Transactional(propagation = Propagation.REQUIRED)
+
+    /**
+     * Method Auth is used for user authentication.
+     * The user authenticates in the application and after successful authentication, JWT token is given to a user
+     * This endpoint requests for the User credentials to be passed in the authorization field of header as part of Basic authentication.
+     * We need to pass "Basic username:password", (where username:password of the String is encoded to Base64 format)
+     */
+
     public UserAuthTokenEntity auth(final String username, final String password) throws AuthenticationFailedException {
         UserEntity userEntity = userDao.getUserByUsername(username);
+
+        /**
+         * If the username provided by the user does not exist AuthenticationFailedException is thrown
+         */
         if (userEntity == null) {
             throw new AuthenticationFailedException("ATH-001", "This username does not exist");
         }
 
         final String encryptedPassword = passwordCryptographyProvider.encrypt(password, userEntity.getSalt());
+
         if (encryptedPassword.equals(userEntity.getPassword())) {
             JwtTokenProvider jwtTokenProvider = new JwtTokenProvider(encryptedPassword);
             UserAuthTokenEntity userAuthTokenEntity = new UserAuthTokenEntity();
@@ -51,7 +64,11 @@ public class AuthenticationService {
 
             userDao.updateUser(userEntity);
             return userAuthTokenEntity;
-        } else {
+        }
+        /**
+         * If the password provided by the user does not match the password in the existing database AuthenticationFailedException is thrown
+         */
+        else {
             throw new AuthenticationFailedException("ATH-002", "Password failed");
         }
     }

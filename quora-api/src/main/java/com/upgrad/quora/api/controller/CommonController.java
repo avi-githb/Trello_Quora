@@ -11,6 +11,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+/**
+ * This endpoint is used to get the details of any user in the Quora Application. This endpoint can be accessed by any user in the application.
+ */
+
 @RestController
 
 @RequestMapping("/")
@@ -22,7 +27,8 @@ public class CommonController {
 
     public ResponseEntity<UserDetailsResponse> getUser(@RequestHeader("authorization") final String authToken, @PathVariable("userId") final String userUuid) throws UserNotFoundException, AuthorizationFailedException {
 
-       final UserEntity userEntity = userBusinessService.getUserByUuId(userUuid,authToken);
+        final UserEntity userEntity = userBusinessService.getUserByUuId(userUuid, authToken);
+
 
         UserDetailsResponse userDetailsResponse = new UserDetailsResponse().firstName(userEntity.getFirstName())
                 .lastName(userEntity.getLastName()).userName(userEntity.getUserName()).emailAddress(userEntity.getEmailAddress()).country(userEntity.getCountry())

@@ -10,29 +10,52 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+
+/**
+ * This class is used to delete a user from the Quora Application. Only an admin is authorized to access this endpoint.
+ */
 @Service
 public class UserDeleteService {
 
     @Autowired
     private UserDao userDao;
+
     @Transactional(propagation = Propagation.REQUIRED)
-    public String deleteUser(final String authorization,final String userId) throws AuthorizationFailedException, UserNotFoundException {
+
+    /**
+     * this method delete the records from all the tables related to that user and return 'uuid' of the deleted user from 'users' table
+     */
+    public String deleteUser(final String authorization, final String userId) throws AuthorizationFailedException, UserNotFoundException {
         UserAuthTokenEntity userByAuthtoken = userDao.getUserByAuthtoken(authorization);
 
-        if(userByAuthtoken==null){
-            throw new AuthorizationFailedException("ATHR-001","User has not signed in");
+        /**
+         * If the access token provided by the user does not exist in the database throw 'AuthorizationFailedException'
+         */
+        if (userByAuthtoken == null) {
+            throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         }
 
-        if(userByAuthtoken.getLogoutAt()!=null){
-            throw new AuthorizationFailedException("ATHR-002","User is signed out");
+        /**
+         * If the user has signed out, throw 'AuthorizationFailedException'
+         */
+        if (userByAuthtoken.getLogoutAt() != null) {
+            throw new AuthorizationFailedException("ATHR-002", "User is signed out");
         }
-        if(userByAuthtoken.getUser().getRole().equals("nonadmin")){
-            throw new AuthorizationFailedException("ATHR-003","Unauthorized Access, Entered user is not an admin");
+
+        /**
+         * If the role of the user is 'nonadmin',  throw 'AuthorizationFailedException'
+         */
+        if (userByAuthtoken.getUser().getRole().equals("nonadmin")) {
+            throw new AuthorizationFailedException("ATHR-003", "Unauthorized Access, Entered user is not an admin");
         }
 
         UserEntity userFromGivenUuid = userDao.getUserFromUuid(userId);
-        if(userFromGivenUuid==null){
-            throw new UserNotFoundException("USR-001","User with entered uuid to be deleted does not exist");
+
+        /**
+         * If the user with uuid whose profile is to be deleted does not exist in the database, throw 'UserNotFoundException'
+         */
+        if (userFromGivenUuid == null) {
+            throw new UserNotFoundException("USR-001", "User with entered uuid to be deleted does not exist");
         }
 
         return userDao.deleteUser(userId);

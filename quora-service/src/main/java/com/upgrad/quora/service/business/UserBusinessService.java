@@ -11,6 +11,9 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 
+/**
+ * This class is used to get the details of any user in the Quora Application.
+ */
 @Service
 public class UserBusinessService {
 
@@ -18,6 +21,10 @@ public class UserBusinessService {
     private UserDao userDao;
 
     @Transactional(propagation = Propagation.REQUIRED)
+
+    /**
+     *this method return all the details of the user as UserEntity.
+     */
     public UserEntity getUserByUuId(final String userUuid, String authToken) throws UserNotFoundException, AuthorizationFailedException {
 
         UserAuthTokenEntity userAuthTokenEntity = userDao.getUserByAuthtoken(authToken);

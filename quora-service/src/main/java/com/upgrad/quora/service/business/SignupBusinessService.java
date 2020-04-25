@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * This class is used to register a new user in the Quora Application
+ */
+
 @Service
 public class SignupBusinessService {
 
@@ -19,11 +23,24 @@ public class SignupBusinessService {
     private PasswordCryptographyProvider passwordCryptographyProvider;
 
     @Transactional(propagation = Propagation.REQUIRED)
+
+    /**
+     * If the information is provided by a non-existing user, then save the user information in the database and
+     return the 'uuid' of the registered user and message 'USER SUCCESSFULLY REGISTERED' in the JSON response with the corresponding HTTP status.
+     * when a user signs up using this endpoint then the role of the person will be 'nonadmin' by default.
+     */
     public UserEntity signup(UserEntity userEntity) throws SignUpRestrictedException {
 
+        /**
+         *If the username provided already exists in the current database, throw ‘SignUpRestrictedException’
+         */
         if (userDao.getUserByUsername(userEntity.getUserName()) != null) {
             throw new SignUpRestrictedException("SGR-001", "Try any other Username, this Username has already been taken");
         }
+
+        /**
+         *If the email Id provided by the user already exists in the current database, throw ‘SignUpRestrictedException’
+         */
         if (userDao.getUserByEmail(userEntity.getEmailAddress()) != null) {
             throw new SignUpRestrictedException("SGR-002", "This user has already been registered, try with any other emailId");
         }

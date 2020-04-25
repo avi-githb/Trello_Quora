@@ -13,62 +13,81 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * All the Features of Answer Controller are implemented in this class
+ */
+
 @RestController
 @RequestMapping("/")
 
 public class AnswerController {
+
+    /**
+     * Method to create an Answer
+     */
+
     @Autowired
     private CreateAnswerService createAnswerService;
 
     @RequestMapping(method = RequestMethod.POST, path = "/question/{questionId}/answer/create", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<AnswerResponse> createAnswer(@RequestHeader("authorization") final String authorization, final AnswerRequest answerRequest, @PathVariable("questionId") final String questionId) throws AuthorizationFailedException, InvalidQuestionException {
 
-       AnswerEntity answerEntity = new AnswerEntity();
-       answerEntity.setAnswer(answerRequest.getAnswer());
-       answerEntity=createAnswerService.createAnswer(authorization,answerEntity,questionId);
-       AnswerResponse answerResponse = new AnswerResponse().id(answerEntity.getUuid()).status("ANSWER CREATED");
-       return new ResponseEntity<AnswerResponse>(answerResponse, HttpStatus.CREATED);
+        AnswerEntity answerEntity = new AnswerEntity();
+        answerEntity.setAnswer(answerRequest.getAnswer());
+        answerEntity = createAnswerService.createAnswer(authorization, answerEntity, questionId);
+        AnswerResponse answerResponse = new AnswerResponse().id(answerEntity.getUuid()).status("ANSWER CREATED");
+        return new ResponseEntity<AnswerResponse>(answerResponse, HttpStatus.CREATED);
     }
 
+    /**
+     * Method to edit the contents of an Answer
+     */
 
     @Autowired
     private EditAnswerService editAnswerService;
 
-
-
     @RequestMapping(method = RequestMethod.PUT, path = "/answer/edit/{answerId}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<AnswerEditResponse> editAnswerContent(@RequestHeader ("authorization") final String authorization, final AnswerEditRequest answerEditRequest,  @PathVariable("answerId") final String answerId) throws AuthorizationFailedException,  AnswerNotFoundException {
+    public ResponseEntity<AnswerEditResponse> editAnswerContent(@RequestHeader("authorization") final String authorization, final AnswerEditRequest answerEditRequest, @PathVariable("answerId") final String answerId) throws AuthorizationFailedException, AnswerNotFoundException {
 
-        AnswerEntity answerEntity =new AnswerEntity();
+        AnswerEntity answerEntity = new AnswerEntity();
 
         answerEntity.setAnswer(answerEditRequest.getContent());
 
 
-        AnswerEntity editedAnswer = editAnswerService.editAnswer(authorization,answerEntity, answerId);
+        AnswerEntity editedAnswer = editAnswerService.editAnswer(authorization, answerEntity, answerId);
 
         AnswerEditResponse answerEditResponse = new AnswerEditResponse().id(editedAnswer.getUuid()).status("ANSWER EDITED");
-        return new ResponseEntity<AnswerEditResponse>(answerEditResponse,HttpStatus.OK);
+        return new ResponseEntity<AnswerEditResponse>(answerEditResponse, HttpStatus.OK);
     }
+
+    /**
+     * Method to delete an Answer
+     */
 
     @Autowired
     private DeleteAnswerService deleteAnswerService;
 
-    @RequestMapping(method = RequestMethod.DELETE, path = "/answer/delete/{answerId}",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.DELETE, path = "/answer/delete/{answerId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 
-    public ResponseEntity<AnswerDeleteResponse> deleteAnswer(@RequestHeader("authorization")final String authorization, @PathVariable("answerId") final String answerId) throws AuthorizationFailedException,AnswerNotFoundException {
+    public ResponseEntity<AnswerDeleteResponse> deleteAnswer(@RequestHeader("authorization") final String authorization, @PathVariable("answerId") final String answerId) throws AuthorizationFailedException, AnswerNotFoundException {
 
-        String deletedAnswerUuid = deleteAnswerService.deleteAnswer(authorization,answerId);
+        String deletedAnswerUuid = deleteAnswerService.deleteAnswer(authorization, answerId);
 
         AnswerDeleteResponse answerDeleteResponse = new AnswerDeleteResponse().id(deletedAnswerUuid).status("ANSWER DELETED");
-        return new ResponseEntity<AnswerDeleteResponse>(answerDeleteResponse,HttpStatus.OK);
+        return new ResponseEntity<AnswerDeleteResponse>(answerDeleteResponse, HttpStatus.OK);
     }
+
+
+    /**
+     * Method to get all the answers to a questions based on Question Uuid
+     */
 
     @Autowired
 
     private GetAllAnswersToQuestionService getAllAnswersToQuestionService;
 
     @RequestMapping(method = RequestMethod.GET, path = "/answer/all/{questionId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<List<AnswerDetailsResponse>> getAllAnswersToQuestion(@RequestHeader ("authorization") final String authorization,  @PathVariable("questionId") final String questionId) throws  AuthorizationFailedException, InvalidQuestionException {
+    public ResponseEntity<List<AnswerDetailsResponse>> getAllAnswersToQuestion(@RequestHeader("authorization") final String authorization, @PathVariable("questionId") final String questionId) throws AuthorizationFailedException, InvalidQuestionException {
 
         List<AnswerEntity> allAnswersToQuestion = getAllAnswersToQuestionService.getAllAnswersToQuestion(questionId, authorization);
 
